@@ -1,0 +1,22 @@
+name: ItemBingoPlugin
+
+version: 1.0
+
+api-version: 1.21
+
+main: main.java.de.cat_2000.itembingoplugin.Main
+
+author: cat_2000
+
+description: Lets you play bingo with survival obtainable items
+
+commands:
+
+   start:
+   
+   cancel:
+   
+   teams:
+
+license: https://www.gnu.org/licenses/gpl-3.0.html
+  
