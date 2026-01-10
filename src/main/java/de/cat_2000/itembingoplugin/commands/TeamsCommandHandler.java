@@ -35,7 +35,7 @@ public class TeamsCommandHandler implements CommandExecutor {
 			return false;
 		}
 		String arg0 = args[0];
-		if (!arg0.matches("(\\[([a-zA-Z0-9_]+,)+[a-zA-Z0-9_]+\\])+")) {
+		if (!arg0.matches("(\\[([a-zA-Z0-9_]+,)*[a-zA-Z0-9_]+\\])+")) {
 			sender.sendMessage(errorMessageFormat);
 			return false;
 		}

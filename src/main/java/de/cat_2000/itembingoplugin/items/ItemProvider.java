@@ -34,7 +34,8 @@ public class ItemProvider {
 	private static final List<ItemRoll> rolls = new ArrayList<ItemRoll>();
 	
 	private static final List<String> loreSilkTouch = new ArrayList<String>();
-	private static final ItemMeta silkTouchMeta = Bukkit.getItemFactory().getItemMeta(Material.SPAWNER);
+	private static final ItemMeta metaSpawner = Bukkit.getItemFactory().getItemMeta(Material.SPAWNER);
+	private static final ItemMeta metaDeepslate = Bukkit.getItemFactory().getItemMeta(Material.REINFORCED_DEEPSLATE);
 	
 	private static int itemListLength;
 	private static int potionListLength;
@@ -849,8 +850,18 @@ public class ItemProvider {
 		trimMaterialListLength = trimMaterials.size();
 		trimPatternListLength = trimPatterns.size();
 
+		loreSilkTouch.add(ChatColor.GREEN + "Obtainable with Silk Touch!");
+		metaSpawner.setLore(loreSilkTouch);
+		metaDeepslate.setLore(loreSilkTouch);
+
 		for (Material m : materialList) {
 			ItemStack item = new ItemStack(m);
+			if (m == Material.REINFORCED_DEEPSLATE) {
+				item.setItemMeta(metaDeepslate);
+			}
+			if (m == Material.SPAWNER) {
+				item.setItemMeta(metaSpawner);
+			}
 			itemList.add(item);
 		}
 		//enchanted books
@@ -944,38 +955,9 @@ public class ItemProvider {
 			itemList.add(bottle);
 		}
 		
-		loreSilkTouch.add(ChatColor.GREEN + "Obtainable with Silk Touch!");
-		silkTouchMeta.setLore(loreSilkTouch);
-		
 		itemListLength = itemList.size();
 		
 		adjustWeights(materialList);
-	}
-	private static void enchantRandomly(ItemStack item) {
-		if (possibleEnchantments.get(item) == null) {
-			return;
-		}
-		List<Enchantment> enchantments = asList(possibleEnchantments.get(item));
-		List<Enchantment> buffer = new ArrayList<Enchantment>();
-		ItemMeta meta = item.getItemMeta();
-		int maxIterations = rd.nextInt(enchantments.size()) + 1;
-		int i = 0;
-		while (i < maxIterations && !enchantments.isEmpty()) {
-			Enchantment enchantment = enchantments.get(rd.nextInt(enchantments.size()));
-			meta.addEnchant(enchantment, rd.nextInt(enchantment.getMaxLevel())+1, false);
-			enchantments.remove(enchantment);
-			for (Enchantment e : enchantments) {
-				if (!e.conflictsWith(enchantment)) {
-					buffer.add(e);
-				}
-			}
-			List<Enchantment> enchantments1 = enchantments;
-			enchantments1.clear();
-			enchantments = buffer;
-			buffer = enchantments1;
-			i++;
-		}
-		item.setItemMeta(meta);
 	}
 	private static void adjustWeights(List<Material> materials) {
 		Material current = itemList.get(0).getType();
@@ -1000,19 +982,6 @@ public class ItemProvider {
 			ItemRoll r = new ItemRoll(s, 1.0 / ((double) currentAppearances * 0.75));
 			rolls.add(r);
 		}
-	}
-	private static void addRandomPotion(ItemStack s) {
-		PotionMeta meta = (PotionMeta) s.getItemMeta();
-		meta.setBasePotionType(potionList.get(rd.nextInt(potionListLength)));
-		s.setItemMeta(meta);
-	}
-	private static void addRandomArmorTrim(ItemStack s) {
-		if (!(s.getItemMeta() instanceof ArmorMeta)) {
-			return;
-		}
-		ArmorMeta meta = (ArmorMeta) s.getItemMeta();
-		meta.setTrim(new ArmorTrim(trimMaterials.get(rd.nextInt(trimMaterialListLength)), trimPatterns.get(rd.nextInt(trimPatternListLength))));
-		s.setItemMeta(meta);
 	}
 	public static ItemStack getRandomItem(List<Integer> blacklist) {
 		int randomIndex = 0;

@@ -35,7 +35,7 @@ public class TeamHandler {
 		proposedTeams = teamData;
  	}
 
-	public static void start(int backpackSize, boolean withPickaxe, boolean withCraftingTable, boolean noHunger, boolean keepInventory) {
+	public static void startDifferentMap(int backpackSize, boolean withPickaxe, boolean withCraftingTable, boolean noHunger, boolean keepInventory) {
 		for (int i = 0; i < proposedTeams.size(); i++) {
 			List<UUID> players = proposedTeams.get(i);
 			Team t = new Team(players, teamColors.get(i), backpackSize, withPickaxe, withCraftingTable);

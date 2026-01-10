@@ -83,7 +83,7 @@ public class StartCommandHandler implements CommandExecutor {
 		if (sameMap) {
 			TeamHandler.startSameMap(backpackSize, withPickaxe, withCraftingTable, noHunger, keepInventory);
 		} else {
-			TeamHandler.start(backpackSize, withPickaxe, withCraftingTable, noHunger, keepInventory);
+			TeamHandler.startDifferentMap(backpackSize, withPickaxe, withCraftingTable, noHunger, keepInventory);
 		}
 		Bukkit.getServer().broadcastMessage(startMessage);
 		return true;

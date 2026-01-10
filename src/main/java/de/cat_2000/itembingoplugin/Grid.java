@@ -288,7 +288,7 @@ public class Grid {
 		}
 	}
 	private String itemToString(ItemStack item) {
-		String toReturn = item.getType().toString().replace("\\_", "\\s").toLowerCase();
+		String toReturn = item.getType().toString().toLowerCase().replaceAll("_", " ");
 		if (item.getItemMeta() == null) {
 			return toReturn;
 		}
@@ -301,10 +301,10 @@ public class Grid {
 			toReturn += "]";
 		}
 		if (item.getItemMeta() instanceof ArmorMeta && ((ArmorMeta)item.getItemMeta()).getTrim() != null) {
-			toReturn += " [" + ((ArmorMeta)item.getItemMeta()).getTrim().getPattern() + "," + ((ArmorMeta)item.getItemMeta()).getTrim().getMaterial() + "]";
+			toReturn += " [" + ((ArmorMeta)item.getItemMeta()).getTrim().getPattern().getKeyOrNull().getKey() + "," + ((ArmorMeta)item.getItemMeta()).getTrim().getMaterial().getKeyOrNull().getKey() + "]";
 		}
 		if (item.getItemMeta() instanceof PotionMeta) {
-			toReturn += " [" + String.valueOf(((PotionMeta)item.getItemMeta()).getBasePotionType()).toLowerCase().replace("\\_", "\\s") + "]";
+			toReturn += " [" + String.valueOf(((PotionMeta)item.getItemMeta()).getBasePotionType()).toLowerCase().replaceAll("_", " ") + "]";
 		}
 		if (item.getItemMeta() instanceof OminousBottleMeta) {
 			toReturn += "[Amplifier: " + ((OminousBottleMeta)item.getItemMeta()).getAmplifier() + "]";
