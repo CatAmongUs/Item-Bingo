@@ -76,3 +76,21 @@ The plugin will remember this player and put it back in the right team once it r
 <li>/cancel: cancels a currently running game</li>
 </ul>
 <strong>These commands to not require any permission, anyone on the server can execute them, including non-admins and players who don´t participate in a running game.</strong>
+<h2>Installation</h2>
+<h3>Where do i get a .jar file of this?</h3>
+<ul>
+<li>Check the releases section of this repo</li>
+<li>I plan on uploading this plugin to modrinth soon</li>
+<li>Clone and compile yourself</li>
+</ul>
+<h3>Compile yourself</h3>
+<ul>
+<li>Clone this repository in your local directory</li>
+<li><strong>Alternatively, you can download a .zip file from the releases section, it´s the same directory structure</strong></li>
+<li>In the cloned or downloaded directory, open command prompt</li>
+<li><STRONG>Check if Java 22 or higher is installed, you can check this with java -version</STRONG></li>
+<li><strong>If not, download it and set the JAVA_HOME environment variable to the path where Java 22 installed, you may need to restart your PC</strong></li>
+<li><strong>run mvnw.cmd clean install (Windows) or ./mvnw clean install (Unix), this will install Maven</strong></li>
+<li><strong>run mvnw.cmd clean package</strong></li>
+<li><strong>The .jar file will be in the /target subdirectory</strong></li>
+</ul>
