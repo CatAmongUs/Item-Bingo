@@ -38,9 +38,6 @@ public class ItemProvider {
 	private static final ItemMeta metaDeepslate = Bukkit.getItemFactory().getItemMeta(Material.REINFORCED_DEEPSLATE);
 	
 	private static int itemListLength;
-	private static int potionListLength;
-	private static int trimMaterialListLength;
-	private static int trimPatternListLength;
 
 	
 	private static final Random rd = new Random();
@@ -845,10 +842,6 @@ public class ItemProvider {
 		armors.add(Material.GOLDEN_CHESTPLATE);
 		armors.add(Material.GOLDEN_LEGGINGS);
 		armors.add(Material.GOLDEN_BOOTS);
-		
-		potionListLength = potionList.size();	
-		trimMaterialListLength = trimMaterials.size();
-		trimPatternListLength = trimPatterns.size();
 
 		loreSilkTouch.add(ChatColor.GREEN + "Obtainable with Silk Touch!");
 		metaSpawner.setLore(loreSilkTouch);
@@ -882,7 +875,6 @@ public class ItemProvider {
 			for (int i = 0; i < enchs.length; i++) {
 				variationsCount *= enchs[i].getMaxLevel();
 			}
-			//Bukkit.getLogger().info("Enchantment permutations for " + item.getType() + ": " + String.valueOf(variationsCount));
 			for (int i = 1; i < variationsCount; i++) {
 				ItemStack current = item.clone();
 				ItemMeta meta = current.getItemMeta();
@@ -927,7 +919,6 @@ public class ItemProvider {
 		}
 		for (ItemStack i : trimsToAdd) {
 			itemList.add(i);
-			//Bukkit.getLogger().info(i.getItemMeta().getAsComponentString());
 		}
 		//potions (normal, splash, lingering) and tipped arrows
 		for (PotionType p : potionList) {

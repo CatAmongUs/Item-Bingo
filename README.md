@@ -68,7 +68,7 @@ No.
 <h3>Is it possible to join a team after a game was started?</h3>
 No.
 <h3>What if someone leaves/disconnects mid-game?</h3>
-The plugin will remember this player and put it back in the right team one it rejoins the server.
+The plugin will remember this player and put it back in the right team once it rejoins the server.
 <h2>Commands</h2>
 <ul>
 <li>/teams: Sets the specified teams</li>
