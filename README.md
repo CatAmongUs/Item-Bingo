@@ -14,7 +14,7 @@ This is for playing a Bingo minigame on your Spigot server.
 
 The Bingo goals are all vanilla items that are obtainable in survival mode. 
 To mark an item as found, you either craft it, pick it up or find it in a chest.
-The first Team thal collects a full row, column or diagonal of items wins!
+The first Team that collects a full row, column or diagonal of items wins!
 
 <h3>What kind of different items are there?</h3>
 <ul>
@@ -57,8 +57,9 @@ The first Team thal collects a full row, column or diagonal of items wins!
 <li>Argument 5: with crafting tables given to players (true/false)</li>
 <li>Argument 6: whether hunger is turned off (true/false)</li>
 <li>Argument 7: whether keepInventory is turned on (true/false)</li>
-</ul>
-Example: /start 5 6 false true true true true. This game will have a 5x5 bingo card, a 6 row backpack inventory, every team will have the same card and the same item goals, players will be given pickaxes and crafting tables, hunger is turned off and keepInventory is on.</li>
+</ul><br>
+<strong>Options summary:</strong> /start cardSize = [3-9] backpackRows = [1-6] sameMap = [true-false] withPickaxe = [true-false] withCrafting = [true-false] noHunger = [true-false] keepInventory = [true-false] <br><br>
+<strong>Example:</strong> /start 5 6 false true true true true. This game will have a 5x5 bingo card, a 6 row backpack inventory, every team will have the same card and the same item goals, players will be given pickaxes and crafting tables, hunger is turned off and keepInventory is on.</li><br>
 <li>The game will finish when</li>
 <ul><li>A team has collected a full row, column or diagonal</li>
 <li>someone performs the /cancel command</li></ul>
